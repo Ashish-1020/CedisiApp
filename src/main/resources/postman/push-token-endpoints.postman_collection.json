@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Push Token APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Push Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"fcmToken\": \"{{fcmToken}}\",\n  \"deviceId\": \"{{deviceId}}\",\n  \"platform\": \"android\",\n  \"appVersion\": \"1.0.0\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/push-tokens/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "push-tokens",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Unregister Push Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"fcmToken\": \"{{fcmToken}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/push-tokens/unregister",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "push-tokens",
+            "unregister"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List User Push Tokens",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/push-tokens/user/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "push-tokens",
+            "user",
+            "{{userId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login With Optional Push Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\",\n  \"fcmToken\": \"{{fcmToken}}\",\n  \"deviceId\": \"{{deviceId}}\",\n  \"platform\": \"android\",\n  \"appVersion\": \"1.0.0\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "userId",
+      "value": ""
+    },
+    {
+      "key": "fcmToken",
+      "value": ""
+    },
+    {
+      "key": "deviceId",
+      "value": ""
+    },
+    {
+      "key": "email",
+      "value": ""
+    },
+    {
+      "key": "password",
+      "value": ""
+    }
+  ]
+}
+

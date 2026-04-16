@@ -1,0 +1,14 @@
+package com.example.ragApp.repository;
+
+import com.example.ragApp.data.PromptTemplate;
+import com.example.ragApp.helper.UseCaseType;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface PromptTemplateRepository
+        extends JpaRepository<PromptTemplate, UUID> {
+    Optional<PromptTemplate> findByUseCase(String useCase);
+
+}

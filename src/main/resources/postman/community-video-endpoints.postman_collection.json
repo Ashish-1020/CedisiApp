@@ -1,0 +1,166 @@
+{
+  "info": {
+    "name": "Community Video APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Admin CRUD and user listing endpoints for community YouTube videos"
+  },
+  "item": [
+    {
+      "name": "Create Community Video (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"How to prepare loan documents\",\n  \"description\": \"Step-by-step loan doc checklist for MSMEs\",\n  \"category\": \"FINANCE\",\n  \"youtubeUrl\": \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\n  \"active\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos/admin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos",
+            "admin"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Community Videos (Admin)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos/admin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos",
+            "admin"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Community Video By Id (Admin)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos/admin/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos",
+            "admin",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Community Video (Admin)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated loan docs guide\",\n  \"description\": \"Updated checklist and timelines\",\n  \"category\": \"FINANCE\",\n  \"youtubeUrl\": \"https://youtu.be/dQw4w9WgXcQ\",\n  \"active\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos/admin/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos",
+            "admin",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Deactivate Community Video (Admin)",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos/admin/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos",
+            "admin",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Active Community Videos (User)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Active Community Videos By Category (User)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/community-videos?category=FINANCE",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community-videos"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "FINANCE"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    }
+  ]
+}
+
