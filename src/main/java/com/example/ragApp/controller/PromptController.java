@@ -1,9 +1,6 @@
 package com.example.ragApp.controller;
 
-import com.example.ragApp.dto.CategoryUseCaseResponse;
-import com.example.ragApp.dto.CreatePromptWithQuestionsRequest;
-import com.example.ragApp.dto.PriorQuestionResponse;
-import com.example.ragApp.dto.UseCasePromptResponse;
+import com.example.ragApp.dto.*;
 import com.example.ragApp.service.PromptService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +20,11 @@ public class PromptController {
     public UseCasePromptResponse createPromptWithQuestions(
             @RequestBody CreatePromptWithQuestionsRequest request) {
         return promptService.createPromptWithQuestions(request);
+    }
+
+    @GetMapping("/all-promptId")
+    public List<PromptIdResponse> getAllPromptIds() {
+        return promptService.getPromptIds();
     }
 
     @GetMapping("/categories")

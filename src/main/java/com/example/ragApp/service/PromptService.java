@@ -4,13 +4,7 @@ import com.example.ragApp.data.PlanPromptMapping;
 import com.example.ragApp.data.PriorQuestion;
 import com.example.ragApp.data.PromptTemplate;
 import com.example.ragApp.data.SubscriptionPlan;
-import com.example.ragApp.dto.AllowedPromptUseCaseItemResponse;
-import com.example.ragApp.dto.CategoryUseCaseResponse;
-import com.example.ragApp.dto.CreatePromptWithQuestionsRequest;
-import com.example.ragApp.dto.PlanAllowedUseCasesResponse;
-import com.example.ragApp.dto.PriorQuestionDTO;
-import com.example.ragApp.dto.PriorQuestionResponse;
-import com.example.ragApp.dto.UseCasePromptResponse;
+import com.example.ragApp.dto.*;
 import com.example.ragApp.repository.PlanPromptMappingRepository;
 import com.example.ragApp.repository.PriorQuestionRepository;
 import com.example.ragApp.repository.PromptTemplateRepository;
@@ -119,6 +113,20 @@ public class PromptService {
                         q.getQuestionKey(),
                         q.getQuestionType(),
                         q.getQuestionOrder()
+                ))
+                .toList();
+    }
+
+
+
+    public List<PromptIdResponse> getPromptIds() {
+
+        List<PromptTemplate> templates = promptTemplateRepository.findAll();
+
+        return templates.stream()
+                .map(t -> new PromptIdResponse(
+                        t.getId(),
+                        t.getUseCase()
                 ))
                 .toList();
     }
